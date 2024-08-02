@@ -1,93 +1,94 @@
 
 
-### README
+# Sorting Algorithm Performance Comparison
 
-# Sorting Algorithms Comparison: Merge Sort vs Quick Sort
+## Overview
 
-This project demonstrates the comparison of time complexity between two popular sorting algorithms: Merge Sort and Quick Sort. The program takes `n` elements from user input, sorts them using both algorithms, and measures the time taken for each sorting process.
+This project compares the performance of two classic sorting algorithms: Merge Sort and Quick Sort. It generates a large array of random integers and measures the time taken by each sorting algorithm to sort the array. The results are printed to the console, along with samples of the array before and after sorting.
 
-## Code Explanation
+## Features
 
-### 1. **Main Function**
+- Generates a large array of random integers.
+- Implements Merge Sort and Quick Sort algorithms.
+- Measures and compares the time taken by each sorting algorithm.
+- Prints samples of the array before and after sorting.
 
-The main function is responsible for:
-- Taking input from the user for the number of elements (`n`) and the elements themselves.
-- Creating two arrays, `arr` and `arr_copy`, to store the elements.
-- Timing the sorting process for both Merge Sort and Quick Sort.
-- Printing the sorted arrays and the time taken for each sorting technique.
+## Files
 
-### 2. **Merge Sort Functions**
+- `main.c`: Contains the main program logic, including the implementation of Merge Sort, Quick Sort, array generation, and timing.
+- `README.md`: This file.
 
-**`mergeSort` Function:**
-- Recursively divides the array into two halves until it reaches individual elements.
-- Calls the `merge` function to merge the sorted halves.
+## Prerequisites
 
-**`merge` Function:**
-- Merges two subarrays into a single sorted array.
-- Uses temporary arrays to store the subarrays and merges them back into the original array.
+- A C compiler (e.g., `gcc` or `clang`).
 
-### 3. **Quick Sort Functions**
+## Compilation
 
-**`quickSort` Function:**
-- Recursively sorts the array by dividing it into partitions.
-- Uses the `partition` function to place the pivot element in its correct position.
+To compile the program, use the following command:
 
-**`partition` Function:**
-- Selects the last element as the pivot and arranges all smaller elements to the left of the pivot and all larger elements to the right.
-- Returns the index of the pivot element.
+```bash
+gcc -o sort_comparison main.c
+```
 
-**`swap` Function:**
-- Swaps two elements in the array.
+This will generate an executable file named `sort_comparison`.
 
-### 4. **Helper Function**
+## Running the Program
 
-**`printArray` Function:**
-- Prints the elements of an array.
+To run the program, use the following command:
 
-### How to Use
+```bash
+./sort_comparison
+```
 
-1. Clone the repository.
-2. Compile the program using a C compiler (e.g., `gcc`).
-   ```sh
-   gcc sorting_comparison.c -o sorting_comparison
-   ```
-3. Run the executable.
-   ```sh
-   ./sorting_comparison
-   ```
-4. Enter the number of elements and the elements themselves when prompted.
+The program will execute, and you will see output similar to the following:
 
-## Analysis: Merge Sort vs Quick Sort
+- A sample of the original array.
+- The time taken for Merge Sort to sort the array.
+- A sample of the array after Merge Sort.
+- The time taken for Quick Sort to sort the array.
+- A sample of the array after Quick Sort.
+
+## Time Complexity
 
 ### Merge Sort
-- **Time Complexity:** O(n log n)
-- **Space Complexity:** O(n)
-- **Best For:**
-  - Linked lists, where it is easier to split and merge lists.
-  - Large datasets where consistent O(n log n) performance is preferred.
-  - Situations where stable sorting is required (i.e., elements with equal keys maintain their relative order).
+- **Best, Average, and Worst Case Time Complexity**: O(n log n)
+- **Space Complexity**: O(n)
+- **Stability**: Stable
+- **When to Use**: Merge Sort is preferred for sorting linked lists and large arrays where stability is required. It is also useful when working with external sorting (i.e., when data is too large to fit into memory).
 
 ### Quick Sort
-- **Time Complexity:** 
-  - Average: O(n log n)
-  - Worst-case: O(n^2) (when the pivot elements are poorly chosen)
-- **Space Complexity:** O(log n) (in-place sorting)
-- **Best For:**
-  - Arrays, as it sorts in place and requires less additional memory.
-  - Situations where average-case performance is acceptable.
-  - Performance-sensitive applications where in-place sorting reduces overhead.
+- **Best Case Time Complexity**: O(n log n) (when the pivot divides the array into nearly equal parts)
+- **Average Case Time Complexity**: O(n log n)
+- **Worst Case Time Complexity**: O(n^2) (when the pivot is the smallest or largest element)
+- **Space Complexity**: O(log n) (due to recursion stack)
+- **Stability**: Unstable
+- **When to Use**: Quick Sort is often faster in practice compared to Merge Sort due to lower constant factors and cache efficiency. It is a good choice for arrays where stability is not a concern and memory usage is a concern.
 
-### Choosing the Right Algorithm
+## Output Example
 
-- **Merge Sort** is generally better for:
-  - Stable sorting requirements.
-  - Larger datasets with consistent performance.
-  - Linked lists.
+```
+Sample of original array:
+First 10 elements: 1234 5678 2345 6789 3456 7890 4567 8901 5678 6789 
+Last 10 elements: 1234 2345 3456 4567 5678 6789 7890 8901 9012 1234 
 
-- **Quick Sort** is generally better for:
-  - In-place sorting with minimal additional memory.
-  - Arrays.
-  - Situations where the average-case performance is acceptable and optimization for the worst-case can be managed (e.g., by using randomized pivots).
+Merge Sort took 1.234567 seconds
+Sample of array after Merge Sort:
+First 10 elements: 1234 2345 3456 4567 5678 6789 7890 8901 9012 1234 
+Last 10 elements: 1234 2345 3456 4567 5678 6789 7890 8901 9012 1234 
 
-By understanding the strengths and weaknesses of each algorithm, you can choose the one that best fits your specific scenario.
+Quick Sort took 0.987654 seconds
+Sample of array after Quick Sort:
+First 10 elements: 1234 2345 3456 4567 5678 6789 7890 8901 9012 1234 
+Last 10 elements: 1234 2345 3456 4567 5678 6789 7890 8901 9012 1234 
+```
+
+## Notes
+
+- The program uses dynamically allocated memory for sorting and array storage.
+- Ensure that you have enough memory available to handle the large array size.
+
+
+```
+
+
 
